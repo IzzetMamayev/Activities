@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Application.Activities;
 using Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
@@ -19,7 +20,7 @@ namespace API.Controllers
             _mediator = mediator;
         }
 
-
+        // [Authorize]  // Mi nastroili Auth Policy v startup, poetomu ne nujni attribut Authorize
         [HttpGet]
         public async Task<IActionResult> GetActivities(/*CancellationToken ct*/) // Yesli client delayet cancel request
         {
@@ -27,6 +28,7 @@ namespace API.Controllers
             // return await Mediator.Send(new List.Query() /*ct*/);
         }
 
+        // [Authorize]  // Mi nastroili Auth Policy v startup, poetomu ne nujni attribut Authorize
         [HttpGet("{id}")]
         public async Task<IActionResult> GetActivity(Guid id)
         {
