@@ -48,6 +48,7 @@ namespace Persistance.Migrations
                     b.ToTable("Activities");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Domain.ActivityAttendee", b =>
                 {
                     b.Property<string>("AppUserId")
@@ -66,6 +67,8 @@ namespace Persistance.Migrations
                     b.ToTable("ActivityAttendees");
                 });
 
+=======
+>>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -264,6 +267,7 @@ namespace Persistance.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Domain.ActivityAttendee", b =>
                 {
                     b.HasOne("Domain.Activity", "Activity")
@@ -283,6 +287,8 @@ namespace Persistance.Migrations
                     b.Navigation("AppUser");
                 });
 
+=======
+>>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -333,6 +339,7 @@ namespace Persistance.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
+<<<<<<< HEAD
 
             modelBuilder.Entity("Domain.Activity", b =>
                 {
@@ -343,6 +350,8 @@ namespace Persistance.Migrations
                 {
                     b.Navigation("Activities");
                 });
+=======
+>>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
 #pragma warning restore 612, 618
         }
     }

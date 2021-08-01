@@ -15,6 +15,7 @@ namespace API.Controllers
     public class ActivitiesController : BaseApiController
     {
 
+<<<<<<< HEAD
         // Popisan danniy Mediator v BaseController
         // private readonly IMediator _mediator;
         // public ActivitiesController(IMediator mediator)
@@ -24,6 +25,9 @@ namespace API.Controllers
 
         // [Authorize]  // Mi nastroili Auth Policy v startup, poetomu ne nujni attribut Authorize
         
+=======
+        // [Authorize]  // Mi nastroili Auth Policy v startup, poetomu ne nujni attribut Authorize
+>>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
         [HttpGet]
         public async Task<IActionResult> GetActivities(/*CancellationToken ct*/) // Yesli client delayet cancel request
         {

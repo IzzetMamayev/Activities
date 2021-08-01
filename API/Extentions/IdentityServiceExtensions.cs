@@ -1,9 +1,13 @@
 using System.Text;
 using API.Services;
 using Domain;
+<<<<<<< HEAD
 using Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+=======
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+>>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +37,7 @@ namespace API.Extentions
                         ValidateAudience = false
                     };
                 });
+<<<<<<< HEAD
             services.AddAuthorization(opt => {
                 opt.AddPolicy("IsActivityHost", policy => {
                     policy.Requirements.Add(new IsHostRequirement());
@@ -41,6 +46,8 @@ namespace API.Extentions
 
             services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>();
 
+=======
+>>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
             services.AddScoped<TokenService>();
 
             return services;
