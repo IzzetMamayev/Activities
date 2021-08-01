@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using System.Security.Claims;
->>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Services;
@@ -9,21 +6,13 @@ using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
-=======
 using Microsoft.EntityFrameworkCore;
->>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
 
 namespace API.Controllers
 {
     [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]")]
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
     public class AccountController : ControllerBase
     {
         private readonly SignInManager<AppUser> _signInManager;
@@ -62,8 +51,6 @@ namespace API.Controllers
 
             return Unauthorized();
         }
-<<<<<<< HEAD
-=======
 
 
         [HttpPost("register")]
@@ -118,6 +105,5 @@ namespace API.Controllers
             };
 
         }
->>>>>>> b79556de721255f51d5ead6e5c85af09cf666b3b
     }
 }

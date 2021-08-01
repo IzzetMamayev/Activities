@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistance;
-using Persistence;
 
 namespace API
 {
@@ -29,7 +28,7 @@ namespace API
                var context = services.GetRequiredService<DataContext>();
                var userManager = services.GetRequiredService<UserManager<AppUser>>();
                await context.Database.MigrateAsync();
-               await Seed.SeedData(context, userManager);
+            //    await Seed.SeedData(context, userManager);
 
            }
            catch (Exception ex)
