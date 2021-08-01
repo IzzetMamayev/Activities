@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Application.Activities;
 using Application.Core;
+using Application.Interfaces;
+using Infrastructure.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +32,7 @@ namespace API.Extentions
 
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
+            services.AddScoped<IUserAccessor, UserAccessor>();
 
             // services.AddDbContext<DataContext>(opt => {
             //     opt.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
