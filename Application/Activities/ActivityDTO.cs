@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Application.Activities.Profiles;
+using Application.Profiles;
 using Domain;
 
 namespace Application.Activities
@@ -16,7 +17,7 @@ namespace Application.Activities
         public string Venue { get; set; }    
         public string HostUserName { get; set; }
         public bool IsCancelled { get; set; }
-        public ICollection<Profile> Attendees { get; set; }
+        public ICollection<AttendeeDTO> Attendees { get; set; }
 
         
     }

@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using API.DTOs;
@@ -29,7 +30,9 @@ namespace API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO)
         {
-            var user = await _userManager.FindByEmailAsync(loginDTO.Email);
+            // var user = await _userManager.FindByEmailAsync(loginDTO.Email);  // tak mi ne mojem zagruzit image
+            var user = await _userManager.Users.Include(p => p.Photos)
+                .FirstOrDefaultAsync(x => x.Email == loginDTO.Email);
 
             if (user == null)
             {
@@ -43,7 +46,7 @@ namespace API.Controllers
                 return new UserDTO
                 {
                     DisplayName = user.DisplayName,
-                    Image = null,
+                    Image = user?.Photos?.FirstOrDefault(x => x.IsMain)?.Url,
                     Token = _token.CreateToken(user),
                     UserName = user.UserName
                 };
@@ -89,7 +92,10 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<UserDTO>> GetCurrentUser()
         {
-            var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+            // var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email)); // tak mi ne mojem zagruzit image
+
+            var user = await _userManager.Users.Include(p => p.Photos)
+                .FirstOrDefaultAsync(x => x.Email == User.FindFirstValue(ClaimTypes.Email));
 
             return CreateUserObject(user);
         }
@@ -99,7 +105,7 @@ namespace API.Controllers
             return new UserDTO
             {
                 DisplayName = user.DisplayName,
-                Image = null,
+                Image = user?.Photos?.FirstOrDefault(x => x.IsMain)?.Url,
                 Token = _token.CreateToken(user),
                 UserName = user.UserName
             };
